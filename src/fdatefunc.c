@@ -6,10 +6,13 @@ BL* getLunarBLArray(U16 year)
 {
 	U8 arraySize=lunarMonths(year);
 	U8 i;
-	BL* bl=(BL*)malloc(sizeof(BL));
+//	BL* bl=(BL*)malloc(sizeof(BL));
+	static BL _bl;
+	static BL* bl=&_bl;
 	if(!bl)
 		return NULL;
-	U8 *array=(U8*)malloc(sizeof(U8)*arraySize);
+//	U8 *array=(U8*)malloc(sizeof(U8)*arraySize);
+	static U8 array[20];
 	if(!array)
 		return NULL;
 	short BLData=lunarBLMonthData(year);
